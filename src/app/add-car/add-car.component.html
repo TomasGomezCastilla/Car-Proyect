@@ -1,0 +1,38 @@
+
+<div class="container">
+
+    <form>
+
+        <div class="form-row">
+          <div class="form-group col-md-6">
+              <label for="inputState">Country</label>
+              <select id="inputState" class="form-control" [(ngModel)]="country" name="ngCountry">
+                <option selected>Germany</option>
+                <option>Spain</option>
+                <option>France</option>
+              </select>
+          </div>
+          <div class="form-group col-md-6">
+              <label for="inputState">Brand</label>
+              <select id="inputState" class="form-control" [(ngModel)]="brand" name="ngBrand">
+                <option selected>BMW</option>
+                <option>OPEL</option>
+                <option>SEAT</option>
+              </select>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label>Car Id</label>
+                <input type="text" class="form-control" [(ngModel)]="carId" name="ngCarId">
+              </div>
+            <div class="form-group col-md-6">
+                <br> 
+                <button class="btn btn-primary" (click)="createNewCar()">Sign in</button>
+            </div>
+          </div>
+
+    </form>
+
+</div>

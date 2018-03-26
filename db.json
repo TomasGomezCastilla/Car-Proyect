@@ -1,9 +1,20 @@
 {
-  "posts": [
+  "cars": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
+      "id": "00002",
+      "brand": "SEAT",
+      "registration": "26/3/2018",
+      "country": "Spain",
+      "created_at": "26/3/2018",
+      "last_update": "26/3/2018"
+    },
+    {
+      "id": "00001",
+      "brand": "OPEL",
+      "registration": "26/3/2018",
+      "country": "Germany",
+      "created_at": "26/3/2018",
+      "last_update": "26/3/2018"
     }
   ],
   "comments": [
