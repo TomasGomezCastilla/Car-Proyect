@@ -1,11 +1,11 @@
 export class Car{
 
-    constructor(private id:string,
-                private brand:string,
-                private registration:string,
-                private country:string,
-                private created_at:string,
-                private last_update:string){
+    constructor(public id:string,
+                public brand:string,
+                public registration:string,
+                public country:string,
+                public created_at:string,
+                public last_update:string){
 
         this.id = id;
         this.brand = brand;

@@ -1,3 +1,26 @@
-<p>
-  main works!
-</p>
+<div class="panel panel-primary">
+    <div class="panel-heading">Filter</div>
+    <div class="panel-body">
+        <label>Brand</label>
+        <select id="inputState" class="form-control" [(ngModel)]="brandFilter" name="ngBrandFilter">
+            <option selected>ALL</option>
+            <option >OPEL</option>
+            <option>BMW</option>
+            <option>SEAT</option>
+        </select>
+        <label>Car Id</label>
+        <input type="text" class="form-control" [(ngModel)]="idFilter" name="ngIdFilter">
+        <button (click)="resetSearch()" class="btn btn-primary">Reset Search</button>      
+    </div>
+</div>
+
+<ul class="list-group">
+    <li *ngFor="let valor of carFilter()" class="list-group-item">
+      <label>ID:{{valor.id}} - </label>
+      <label>BRAND:{{valor.brand}} - </label>
+      <label>COUNTRY:{{valor.country}} - </label>
+      <label>REGISTRATION:{{valor.registration}} - </label>
+      <label>CREATED_AT:{{valor.created_at}} - </label>
+      <label>LAST_UPDATE:{{valor.last_update}}</label>
+  </li>
+</ul>

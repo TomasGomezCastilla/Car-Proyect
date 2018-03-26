@@ -1,4 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForOf } from '@angular/common';
+import { NgModule }      from '@angular/core';
+// SERVICES
+import { CarService } from "../../Services/car.service";
+// CLASSES
+import { Car } from "../../Classes/Car";
 
 @Component({
   selector: 'app-main',
@@ -7,9 +13,40 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  // VARIABLES
+  private cars: Car[] = [];
+  private idFilter:string = "";
+  private brandFilter:string = "ALL";
 
+  // CONSTRUCTOR
+  constructor(private carService:CarService) {
+    this.cars = this.carService.getAllCars(); 
+   }
   ngOnInit() {
+  }
+
+  // METHODS
+  private resetSearch():void{
+    this.brandFilter="ALL";
+    this.idFilter="";
+  }
+
+  private carFilter():Car[]{
+    var carsFilter: Car[] = [];
+
+  //  console.log(this.idFilter + this.);
+
+    for (const object of this.cars) {
+  
+        if((object.brand == this.brandFilter || this.brandFilter == "ALL") 
+        && (object.id == this.idFilter || this.idFilter == ""))
+        {
+          var car = new Car(object.id,object.brand,object.registration,
+                            object.country,object.created_at,object.last_update);
+          carsFilter.push(car);
+        }
+    }
+    return carsFilter;
   }
 
 }
