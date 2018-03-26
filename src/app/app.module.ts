@@ -2,10 +2,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
-// IMPORTS IN MEMORY WEB API
-import { AppHttpModule } from './modules/app-http/app-http.module';
 // SERVICES
 import { CarService } from "../Services/car.service";
+// HTTP
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -13,7 +13,7 @@ import { CarService } from "../Services/car.service";
   ],
   imports: [
     BrowserModule,
-    AppHttpModule
+    HttpClientModule
   ],
   providers: [CarService],
   bootstrap: [AppComponent]
