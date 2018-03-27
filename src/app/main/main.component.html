@@ -1,4 +1,11 @@
 <div class="panel panel-primary">
+    <div class="panel-heading">Create New Car</div>
+    <div class="panel-body">
+          <app-add-car></app-add-car>
+    </div>
+  </div>
+
+<div class="panel panel-primary">
     <div class="panel-heading">Filter</div>
     <div class="panel-body">
         <label>Brand</label>
@@ -15,12 +22,14 @@
 </div>
 
 <ul class="list-group">
-    <li *ngFor="let valor of carFilter()" class="list-group-item">
+    <li *ngFor="let valor of carFilter()" class="list-group-item" (click)="clickCar(valor)">
       <label>ID:{{valor.id}} - </label>
       <label>BRAND:{{valor.brand}} - </label>
       <label>COUNTRY:{{valor.country}} - </label>
       <label>REGISTRATION:{{valor.registration}} - </label>
       <label>CREATED_AT:{{valor.created_at}} - </label>
       <label>LAST_UPDATE:{{valor.last_update}}</label>
+      <a routerLink="/carDetails/{{valor.id}}">Details</a>
   </li>
 </ul>
+

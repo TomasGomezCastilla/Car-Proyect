@@ -12,6 +12,8 @@ import { MainComponent } from './main/main.component';
 // PIPES
 import { CarFilter } from "../Classes/CarFilter";
 import { CarViewComponent } from './car-view/car-view.component';
+// ROUTING
+import { RouterModule} from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,13 @@ import { CarViewComponent } from './car-view/car-view.component';
   imports: [
     BrowserModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot([
+      {path:"carDetails/:id",component:CarViewComponent}, // CAR_DETAILS View
+      {path:"",component:MainComponent}, // MAIN view
+      
+    ])
+ 
   ],
   providers: [CarService],
   bootstrap: [AppComponent]

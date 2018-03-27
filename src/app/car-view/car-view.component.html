@@ -1,3 +1,79 @@
-<p>
-  car-view works!
-</p>
+  <div class="panel panel-primary">
+    <div class="panel-heading">Car Details</div>
+    <div class="panel-body" >
+
+      <div class="form-row">
+        <div class="form-group col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">CAR IDENTIFICATION</div>
+                <div class="panel-body" > {{carService.lastGotCar.registration}} </div>
+              </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="form-row">
+              <label>BRAND</label>
+              <select id="inputState" class="form-control" [(ngModel)]="brandSelect" name="countrybg">
+                <option selected>{{carService.lastGotCar.brand}}</option>
+                <option >OPEL</option>
+                <option>BMW</option>
+                <option>SEAT</option>
+              </select>
+          </div>
+
+
+          <label>COUNTRY</label>
+          <select id="inputState" class="form-control" [(ngModel)]="countrySelect" name="countrybg" >
+            <option selected>{{carService.lastGotCar.country}}</option>
+            <option>Spain</option>
+            <option>France</option>
+            <option>Germany</option>
+          </select>
+          <br>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+      <div class="form-row">
+        <div class="form-group col-md-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">REGISTRATION DATE</div>
+            <div class="panel-body" > {{carService.lastGotCar.registration}} </div>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">CREATED AT</div>
+            <div class="panel-body" > {{carService.lastGotCar.registration}} </div>
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">LAST UPDATE</div>
+            <div class="panel-body" > {{carService.lastGotCar.registration}} </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+ 
+<button (click)="modifyCar(locura)">Modify Car</button>
+<button (click)="removeCar()">Remove Car</button>
+
+<a routerLink="">go Back</a>

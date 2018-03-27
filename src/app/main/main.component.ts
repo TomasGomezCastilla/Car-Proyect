@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import { NgModule }      from '@angular/core';
+import { Router } from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 // SERVICES
 import { CarService } from "../../Services/car.service";
 // CLASSES
@@ -19,7 +21,7 @@ export class MainComponent implements OnInit {
   private brandFilter:string = "ALL";
 
   // CONSTRUCTOR
-  constructor(private carService:CarService) {
+  constructor(private carService:CarService,private router:Router,private route: ActivatedRoute) {
     this.cars = this.carService.getAllCars(); 
    }
   ngOnInit() {
@@ -31,10 +33,15 @@ export class MainComponent implements OnInit {
     this.idFilter="";
   }
 
+  private clickCar(car:Car):void{
+
+    //var id = this.route.snapshot.paramMap.get('id');
+    //console.log(car);
+    //this.router.navigate(["/carDetails"]); 
+  }
+
   private carFilter():Car[]{
     var carsFilter: Car[] = [];
-
-  //  console.log(this.idFilter + this.);
 
     for (const object of this.cars) {
   
