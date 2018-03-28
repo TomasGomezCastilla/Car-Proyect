@@ -1,11 +1,13 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { NgModule }      from '@angular/core';
 import { NgIf } from '@angular/common';
 // CLASSES
 import { Car } from "../../Classes/Car";
 // SERVICES
 import { CarService } from "../../Services/car.service";
+// ROUTING
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-car-view',
@@ -20,7 +22,7 @@ export class CarViewComponent implements OnInit {
   private brandSelect = "";
 
   // CONSTRUTOR
-  constructor(private route:ActivatedRoute,private carService:CarService) {
+  constructor(private route:ActivatedRoute,private carService:CarService,private router:Router) {
     this.id = this.route.snapshot.paramMap.get('id');
     this.carService.getCarId(this.id);
   }
@@ -30,6 +32,7 @@ export class CarViewComponent implements OnInit {
   // METHODS
   removeCar(){
     this.carService.removeCar(this.id);
+    this.router.navigateByUrl("");
   }
 
   modifyCar(brand:string){

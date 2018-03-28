@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 // SERVICES
 import { CarService } from "../../Services/car.service";
+// ROUTING
+import { Location } from '@angular/common';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-add-car',
@@ -15,7 +19,7 @@ export class AddCarComponent implements OnInit {
 
 
   // CONSTRUCTOR
-  constructor(private carService:CarService) { }
+  constructor(private carService:CarService,private router:Router) { }
   ngOnInit() {
   }
 

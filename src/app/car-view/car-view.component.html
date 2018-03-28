@@ -6,7 +6,7 @@
         <div class="form-group col-md-6">
             <div class="panel panel-primary">
                 <div class="panel-heading">CAR IDENTIFICATION</div>
-                <div class="panel-body" > {{carService.lastGotCar.registration}} </div>
+                <div class="panel-body" > {{carService.lastGotCar.id}} </div>
               </div>
         </div>
         <div class="form-group col-md-6">
@@ -33,14 +33,6 @@
       </div>
 
 
-
-
-
-
-
-
-
-
       <div class="form-row">
         <div class="form-group col-md-4">
           <div class="panel panel-primary">
@@ -51,29 +43,20 @@
         <div class="form-group col-md-4">
           <div class="panel panel-primary">
             <div class="panel-heading">CREATED AT</div>
-            <div class="panel-body" > {{carService.lastGotCar.registration}} </div>
+            <div class="panel-body" > {{carService.lastGotCar.created_at}} </div>
           </div>
         </div>
         <div class="form-group col-md-4">
           <div class="panel panel-primary">
             <div class="panel-heading">LAST UPDATE</div>
-            <div class="panel-body" > {{carService.lastGotCar.registration}} </div>
+            <div class="panel-body" > {{carService.lastGotCar.last_update}} </div>
           </div>
         </div>
       </div>
 
-
-
-
-
-
-
-
-
     </div>
   </div>
  
-<button (click)="modifyCar(locura)">Modify Car</button>
-<button (click)="removeCar()">Remove Car</button>
-
-<a routerLink="">go Back</a>
+<a href="." type="button" class="btn btn-primary" (click)="modifyCar()" >Modify Car</a>
+<a href="." type="button" class="btn btn-primary" (click)="removeCar()" >Remove Car</a>
+<a href="." type="button" class="btn btn-primary" > Return </a>

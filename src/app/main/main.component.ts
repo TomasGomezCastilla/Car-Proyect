@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForOf } from '@angular/common';
 import { NgModule }      from '@angular/core';
-import { Router } from '@angular/router';
-import {ActivatedRoute} from '@angular/router';
 // SERVICES
 import { CarService } from "../../Services/car.service";
 // CLASSES
 import { Car } from "../../Classes/Car";
+// ROUTING
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-main',
@@ -22,24 +24,13 @@ export class MainComponent implements OnInit {
 
   // CONSTRUCTOR
   constructor(private carService:CarService,private router:Router,private route: ActivatedRoute) {
-    this.cars = this.carService.getAllCars(); 
+    this.cars = this.carService.getAllCars();
+    this.carFilter();
    }
   ngOnInit() {
   }
 
   // METHODS
-  private resetSearch():void{
-    this.brandFilter="ALL";
-    this.idFilter="";
-  }
-
-  private clickCar(car:Car):void{
-
-    //var id = this.route.snapshot.paramMap.get('id');
-    //console.log(car);
-    //this.router.navigate(["/carDetails"]); 
-  }
-
   private carFilter():Car[]{
     var carsFilter: Car[] = [];
 
@@ -55,5 +46,11 @@ export class MainComponent implements OnInit {
     }
     return carsFilter;
   }
+
+  private resetSearch():void{
+    this.brandFilter="ALL";
+    this.idFilter="";
+  }
+
 
 }
