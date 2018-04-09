@@ -5,7 +5,6 @@ import { CarService } from "../../Services/car.service";
 import { Location } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-add-car',
   templateUrl: './add-car.component.html',
@@ -16,7 +15,6 @@ export class AddCarComponent implements OnInit {
   private country:string;
   private brand:string;
   private carId:string;
-
 
   // CONSTRUCTOR
   constructor(private carService:CarService,private router:Router) { }

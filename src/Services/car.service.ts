@@ -8,7 +8,9 @@ import { Car } from "../Classes/Car";
 @Injectable()
 export class CarService {
 
+  // ATRIBUTES
   public lastGotCar: Car;
+
   // CONSTRUCTOR
   constructor(private http:HttpClient) {
    }
@@ -18,7 +20,6 @@ export class CarService {
     var car = new Car(id,brand,registration,country,created,updated);
     this.http.post("http://localhost:3004/cars",car).subscribe(
       (data:any) => {
-        console.log(data);
       },
       error => {
         console.log(error);
@@ -30,7 +31,6 @@ export class CarService {
     this.http.get("http://localhost:3004/cars").subscribe(
       (data:any) => {
         for (const object of data) {
-          console.log(object);
           var car = new Car(object.id,object.brand,object.registration,
                             object.country,object.created_at,object.last_update);
           cars.push(car);
@@ -44,13 +44,13 @@ export class CarService {
 
   public getCarId(id:string){
 
-    let params = new HttpParams().set('id',id);
+    this.lastGotCar = new Car("","","","","","");  
 
+    let params = new HttpParams().set('id',id);
     this.http.get("http://localhost:3004/cars",{params}).subscribe(
       (data:any) => {
           var car = new Car(data[0].id,data[0].brand,data[0].registration,
             data[0].country,data[0].created_at,data[0].last_update);     
-            console.log(car);
             
           this.lastGotCar = car;
       },

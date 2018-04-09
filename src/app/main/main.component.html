@@ -1,3 +1,4 @@
+<!-- ADD NEW CAR -->
 <div class="panel panel-primary">
     <div class="panel-heading">Create New Car</div>
     <div class="panel-body">
@@ -5,6 +6,7 @@
     </div>
   </div>
 
+<!-- CAR FILTER -->
 <div class="panel panel-primary">
     <div class="panel-heading">Filter</div>
     <div class="panel-body">
@@ -21,8 +23,9 @@
     </div>
 </div>
 
+<!-- CAR LIST -->
 <ul class="list-group">
-    <li *ngFor="let valor of carFilter()" class="list-group-item" (click)="clickCar(valor)">
+    <li *ngFor="let valor of carFilter()" class="list-group-item">
       <label>ID:{{valor.id}} - </label>
       <label>BRAND:{{valor.brand}} - </label>
       <label>COUNTRY:{{valor.country}} </label>
