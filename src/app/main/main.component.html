@@ -25,10 +25,7 @@
     <li *ngFor="let valor of carFilter()" class="list-group-item" (click)="clickCar(valor)">
       <label>ID:{{valor.id}} - </label>
       <label>BRAND:{{valor.brand}} - </label>
-      <label>COUNTRY:{{valor.country}} - </label>
-      <label>REGISTRATION:{{valor.registration}} - </label>
-      <label>CREATED_AT:{{valor.created_at}} - </label>
-      <label>LAST_UPDATE:{{valor.last_update}}</label>
+      <label>COUNTRY:{{valor.country}} </label>
       <a type="button" class="btn btn-primary" routerLink="/carDetails/{{valor.id}}">Details</a>
   </li>
 </ul>

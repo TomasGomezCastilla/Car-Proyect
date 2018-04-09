@@ -11,7 +11,6 @@ export class CarService {
   public lastGotCar: Car;
   // CONSTRUCTOR
   constructor(private http:HttpClient) {
-    
    }
 
    // METHODS
@@ -61,7 +60,6 @@ export class CarService {
   }
 
   removeCar(id:string){
-
     this.http.delete("http://localhost:3004/cars/"+id).subscribe(
       (data:any) => {
       },
@@ -71,7 +69,7 @@ export class CarService {
   } 
 
   modifyCar(id:string,brand:string,registration:string,country:string,created:string,updated:string){
-    var car = new Car("",brand,registration,country,created,updated);
+    var car = new Car(id,brand,registration,country,created,updated);
 
     this.http.patch("http://localhost:3004/cars/"+id,car).subscribe(
       (data:any) => {

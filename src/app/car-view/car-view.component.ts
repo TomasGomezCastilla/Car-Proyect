@@ -16,15 +16,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class CarViewComponent implements OnInit {
 
-  private id:string = "";
+  private id:string;
   private car:Car;
-  private  countrySelect = "";
-  private brandSelect = "";
+  private countrySelect:string = "";
+  private brandSelect:string = "";    
 
   // CONSTRUTOR
   constructor(private route:ActivatedRoute,private carService:CarService,private router:Router) {
     this.id = this.route.snapshot.paramMap.get('id');
-    this.carService.getCarId(this.id);
+    this.carService.getCarId(this.id); 
   }
   ngOnInit() {
   }
@@ -35,7 +35,11 @@ export class CarViewComponent implements OnInit {
     this.router.navigateByUrl("");
   }
 
-  modifyCar(brand:string){
+  modifyCar(){
+
+    if(this.brandSelect=="") this.brandSelect = this.carService.lastGotCar.brand;
+    if(this.countrySelect=="") this.countrySelect = this.carService.lastGotCar.country;
+
     this.carService.modifyCar(this.carService.lastGotCar.id,this.brandSelect,this.carService.lastGotCar.registration
                               ,this.countrySelect,this.carService.lastGotCar.created_at,new Date().toLocaleDateString());
   }
