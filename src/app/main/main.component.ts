@@ -40,7 +40,7 @@ export class MainComponent implements OnInit {
         && (object.id == this.idFilter || this.idFilter == ""))
         {
           var car = new Car(object.id,object.brand,object.registration,
-                            object.country,object.created_at,object.last_update);
+                            object.country,object.createdAt,object.lastUpdate);
           carsFilter.push(car);
         }
     }

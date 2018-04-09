@@ -1,36 +1,20 @@
 {
   "cars": [
     {
-      "id": "010101",
-      "brand": "SEAT",
-      "registration": "28/3/2018",
+      "id": "5435",
+      "brand": "OPEL",
+      "registration": 1523271769710,
       "country": "Spain",
-      "created_at": "28/3/2018",
-      "last_update": "9/4/2018"
+      "createdAt": 1523271769710,
+      "lastUpdate": 1523271769710
     },
     {
-      "id": "67889906798",
-      "brand": "SEAT",
-      "registration": "28/3/2018",
-      "country": "France",
-      "created_at": "28/3/2018",
-      "last_update": "9/4/2018"
-    },
-    {
-      "id": "90756764674",
-      "brand": "SEAT",
-      "registration": "28/3/2018",
+      "id": "12",
+      "brand": "OPEL",
+      "registration": 1523271907961,
       "country": "Germany",
-      "created_at": "28/3/2018",
-      "last_update": "28/3/2018"
-    },
-    {
-      "id": "12345",
-      "brand": "BMW",
-      "registration": "9/4/2018",
-      "country": "Germany",
-      "created_at": "9/4/2018",
-      "last_update": "9/4/2018"
+      "createdAt": 1523271907961,
+      "lastUpdate": 1523271907961
     }
   ],
   "comments": [

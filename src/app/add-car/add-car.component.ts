@@ -12,6 +12,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class AddCarComponent implements OnInit {
 
+  // ATRIBUTES
   private country:string;
   private brand:string;
   private carId:string;
@@ -23,8 +24,8 @@ export class AddCarComponent implements OnInit {
 
   // METHODS
   private createNewCar():void {
-   this.carService.postCar(this.carId,this.brand,new Date().toLocaleDateString(),
-                            this.country,new Date().toLocaleDateString(),new Date().toLocaleDateString());
+   this.carService.postCar(this.carId,this.brand,Date.now(),
+                            this.country,Date.now(),Date.now());
+    this.router.navigate([""]);
   }
-
 }

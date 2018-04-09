@@ -41,7 +41,7 @@ export class CarViewComponent implements OnInit {
     if(this.countrySelect=="") this.countrySelect = this.carService.lastGotCar.country;
 
     this.carService.modifyCar(this.carService.lastGotCar.id,this.brandSelect,this.carService.lastGotCar.registration
-                              ,this.countrySelect,this.carService.lastGotCar.created_at,new Date().toLocaleDateString());
+                              ,this.countrySelect,this.carService.lastGotCar.createdAt,Date.now());
   }
 
 }

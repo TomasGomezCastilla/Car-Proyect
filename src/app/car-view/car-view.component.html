@@ -37,19 +37,19 @@
         <div class="form-group col-md-4">
           <div class="panel panel-primary">
             <div class="panel-heading">REGISTRATION DATE</div>
-            <div class="panel-body" > {{carService.lastGotCar.registration}} </div>
+            <div class="panel-body" > {{carService.lastGotCar.registration | date }} </div>
           </div>
         </div>
         <div class="form-group col-md-4">
           <div class="panel panel-primary">
             <div class="panel-heading">CREATED AT</div>
-            <div class="panel-body" > {{carService.lastGotCar.created_at}} </div>
+            <div class="panel-body" > {{carService.lastGotCar.createdAt | date }} </div>
           </div>
         </div>
         <div class="form-group col-md-4">
           <div class="panel panel-primary">
             <div class="panel-heading">LAST UPDATE</div>
-            <div class="panel-body" > {{carService.lastGotCar.last_update}} </div>
+            <div class="panel-body" > {{carService.lastGotCar.lastUpdate | date }} </div>
           </div>
         </div>
       </div>

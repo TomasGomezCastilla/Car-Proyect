@@ -28,7 +28,6 @@ import { CarViewComponent } from './car-view/car-view.component';
     RouterModule.forRoot([
       {path:"carDetails/:id",component:CarViewComponent}, // CAR_DETAILS View
       {path:"",component:MainComponent}, // MAIN view
-      
     ])
  
   ],
