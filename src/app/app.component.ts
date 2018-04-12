@@ -17,7 +17,7 @@ export class AppComponent {
   // CONSTRUCTOR
   constructor(private authService:AuthService,private activatedRoute:ActivatedRoute){
 
-    authService.handleAuthentication();
+  authService.handleAuthentication();
 
    if(localStorage.getItem("id_token") != null && localStorage.getItem("id_token") != "")
    {
