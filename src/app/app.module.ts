@@ -19,10 +19,6 @@ import { HomeComponent } from './home/home.component';
 import { AuthGuard } from "./auth.guard";
 // JWT
 import { JwtModule } from '@auth0/angular-jwt';
-export function tokenGetter() {
-  return localStorage.getItem('eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3JwYWV6YmFzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1YWNiOTM0NTQzYzg3ZjExNDllZmRiMWMiLCJhdWQiOiJ4Nm1FcTF4cVdrcjczMEVLTUQ0M043Z1kyMjdDWm1wZSIsImlhdCI6MTUyMzUxNzM2OCwiZXhwIjoxNTIzNTUzMzY4fQ.VSgvchmYZ_sdsmkNRUBFHVhBZMS-PZBFbO1HgFkEsuw');
-}
-
 
 @NgModule({
   declarations: [
@@ -43,16 +39,6 @@ export function tokenGetter() {
       {path:"login",component:LoginComponent}, 
       {path:"",component:HomeComponent},
     ]),
- 
-    JwtModule.forRoot({
-    config: {
-    tokenGetter: tokenGetter,
-    //whitelistedDomains: ['localhost:3001']
-    //whitelistedDomains: ['localhost:3001'],
-    //blacklistedRoutes: ['localhost:3001/auth/']
-  }
-})
-
   ], // END OF IMPORTS
   providers: [CarService,AuthGuard,AuthService],
   bootstrap: [AppComponent]

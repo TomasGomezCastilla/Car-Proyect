@@ -14,13 +14,14 @@ export class AuthGuard implements CanActivate {
  }
 
   canActivate(next: ActivatedRouteSnapshot,state: RouterStateSnapshot):boolean {
-    if(this.authService.sessionActived == true){
+    if(localStorage.getItem("id_token") != null && localStorage.getItem("id_token") != ""){
+      console.log(localStorage.getItem("id_token"));
+      
        return true;
       }
     else {
       this.router.navigateByUrl("");
+      return false;
      }
-    return false;
   }
-
 }

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../../Classes/User';
 // SERVICES
 import { AuthService } from "../../Services/auth.service"
+// ROUTING
+import { Router, ActivatedRoute,Params } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,20 +13,15 @@ import { AuthService } from "../../Services/auth.service"
 })
 export class LoginComponent implements OnInit {
 
-  // ATRIBUTOS
-  private user:string = "";
-  private password:string = "";
-
+  // ATRIBUTES
+  private view:boolean;
   // CONSTRUCTOR
-  constructor(private authService:AuthService) {
+  constructor(private authService:AuthService){
+    console.log(localStorage.getItem("id_token"));
    }
   ngOnInit() {
   }
 
-  // METODOS
-  login(){
-    var user = new User(this.user,this.password);
-    this.authService.sessionActived = true;
-  }
+  // METHODS
 
 }
