@@ -49,7 +49,7 @@
         <div class="form-group col-md-4">
           <div class="panel panel-primary">
             <div class="panel-heading">LAST UPDATE</div>
-            <div class="panel-body" > {{carService.lastGotCar.lastUpdate | date }} </div>
+            <div class="panel-body" > {{carService.lastGotCar.lastUpdated | date }} </div>
           </div>
         </div>
       </div>
@@ -57,6 +57,6 @@
     </div>
   </div>
  
-<a href="." type="button" class="btn btn-primary" (click)="modifyCar()" >Modify Car</a>
-<a href="." type="button" class="btn btn-primary" (click)="removeCar()" >Remove Car</a>
-<a href="." type="button" class="btn btn-primary" > Return </a>
+<a type="button" class="btn btn-primary" (click)="modifyCar()" routerLink="">Modify Car</a>
+<a type="button" class="btn btn-primary" (click)="removeCar()" routerLink="">Remove Car</a>
+<a type="button" class="btn btn-primary"  routerLink=""> Return </a>

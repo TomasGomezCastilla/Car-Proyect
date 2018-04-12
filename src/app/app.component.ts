@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { NgIf } from '@angular/common';
+// SERVICES
+import { AuthService } from "../Services/auth.service"
 
 @Component({
   selector: 'app-root',
@@ -8,7 +11,12 @@ import { Component } from '@angular/core';
 export class AppComponent {
 
   // CONSTRUCTOR
-  constructor(){
+  constructor(private authService:AuthService){
+  }
+
+  // METHODS
+  logout(){
+    this.authService.sessionActived = false;
   }
 
 }

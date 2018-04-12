@@ -16,41 +16,50 @@ export class CarService {
    }
 
    // METHODS
-  public postCar(id:string,brand:string,registration:number,country:string,createdAt:number,lastUpdate:number){
+  public postCar(id:string,brand:string,registration:string,country:string,createdAt:string,lastUpdate:string){
     var car = new Car(id,brand,registration,country,createdAt,lastUpdate);
-    this.http.post("http://localhost:3004/cars",car).subscribe(
+    // MOCK http://localhost:3004/cars
+    this.http.post("http://10.114.106.93:8080/postgre_test/cars",car,{headers:{'Content-Type': 'application/json' }}).subscribe(
       (data:any) => {
       },
       error => {
-        console.log(error);
-        
+        console.log(error); 
       });
   }
 
   public getAllCars():Car[]{
     var cars: Car[] = [];
-    this.http.get("http://localhost:3004/cars").subscribe(
+    // MOCKED http://localhost:3004/cars
+        var config = {headers: {
+          'Authorization': 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL3JwYWV6YmFzLmF1dGgwLmNvbS8iLCJzdWIiOiJhdXRoMHw1YWNiOTM0NTQzYzg3ZjExNDllZmRiMWMiLCJhdWQiOiJ4Nm1FcTF4cVdrcjczMEVLTUQ0M043Z1kyMjdDWm1wZSIsImlhdCI6MTUyMzUxNzM2OCwiZXhwIjoxNTIzNTUzMzY4fQ.VSgvchmYZ_sdsmkNRUBFHVhBZMS-PZBFbO1HgFkEsuw',
+      }
+    };
+    this.http.get("http://10.114.106.93:8080/postgre_test/cars",config).subscribe(
       (data:any) => {
         for (const object of data) {
           var car = new Car(object.id,object.brand,object.registration,
-                            object.country,object.createdAt,object.lastUpdate);
+                            object.country,object.createdAt,object.lastUpdated);
           cars.push(car);
         }
       },
       error => {
+        console.log(error)
       });
       return cars;
   }
 
   public getCarId(id:string){
 
-    this.lastGotCar = new Car("","",0,"",0,0);  
+    this.lastGotCar = new Car("","","","","","");  
 
     let params = new HttpParams().set('id',id);
-    this.http.get("http://localhost:3004/cars",{params}).subscribe(
+    // MOCK http://localhost:3004/cars ,{params}
+    this.http.get("http://10.114.106.93:8080/postgre_test/cars/"+id).subscribe(
       (data:any) => {
-          var car = new Car(data[0].id,data[0].brand,data[0].registration,
-            data[0].country,data[0].createdAt,data[0].lastUpdate);     
+          console.log("PRUEBA: " + data.lastUpdated);
+          
+          var car = new Car(data.id,data.brand,data.registration,
+            data.country,data.createdAt,data.lastUpdated);     
             
           this.lastGotCar = car;
       },
@@ -59,7 +68,8 @@ export class CarService {
   }
 
   removeCar(id:string){
-    this.http.delete("http://localhost:3004/cars/"+id).subscribe(
+    // MOCK "http://localhost:3004/cars/ + id"
+    this.http.delete("http://10.114.106.93:8080/postgre_test/cars/"+id).subscribe(
       (data:any) => {
       },
       result => {     
@@ -67,16 +77,22 @@ export class CarService {
 
   } 
 
-  modifyCar(id:string,brand:string,registration:number,country:string,createdAt:number,lastUpdate:number){
-    var car = new Car(id,brand,registration,country,createdAt,lastUpdate);
-
-    this.http.patch("http://localhost:3004/cars/"+id,car).subscribe(
+  modifyCar(id:string,brand:string,registration:string,country:string,createdAt:string,lastUpdate:string){
+    var car = new Car("",brand,registration,country,createdAt,lastUpdate);
+    // MOCK http://localhost:3004/cars/
+    
+    this.http.put("http://10.114.106.93:8080/postgre_test/cars/"+id,car).subscribe(
       (data:any) => {
       },
       result => {     
       });
   } 
 
+  /* ----- CODIGOS DE ERROR -----
+  Si haces la peticion de un coche con una id que no existe, te responde con un 404
+  Si si que existe, con un 201
+  Y si hay un error del servidor, con un 500
+  */
 
   
 }

@@ -24,8 +24,10 @@ export class AddCarComponent implements OnInit {
 
   // METHODS
   private createNewCar():void {
-   this.carService.postCar(this.carId,this.brand,Date.now(),
-                            this.country,Date.now(),Date.now());
+  
+   var date = new Date(Date.now());
+   this.carService.postCar(this.carId,this.brand,date.toISOString(),
+                            this.country,date.toISOString(),date.toISOString());
     this.router.navigate([""]);
   }
 }

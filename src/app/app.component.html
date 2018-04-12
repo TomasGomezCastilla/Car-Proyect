@@ -5,6 +5,20 @@
           <h2>Car Application</h2>
         </div> 
 
+        <nav class="navbar navbar-light" style="background-color: black;">
+          <a class="navbar-brand" style="color: white;" routerLink=""> Home </a>
+
+          <div *ngIf="authService.sessionActived == true">  
+          <a class="navbar-brand" style="color: white;" routerLink="list"> Car List </a>
+          <a class="navbar-brand navbar-right" style="color: white; padding-right: 50px" (click)="logout()" routerLink=""> Logout </a>
+          </div>
+
+          <div *ngIf="authService.sessionActived == false">  
+          <a class="navbar-brand navbar-right" style="color: white; padding-right: 50px" routerLink="login"> Login </a>
+          </div>
+
+        </nav>
+
         <router-outlet></router-outlet> 
 
 </div>

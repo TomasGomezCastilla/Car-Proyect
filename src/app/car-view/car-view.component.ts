@@ -25,6 +25,11 @@ export class CarViewComponent implements OnInit {
   constructor(private route:ActivatedRoute,private carService:CarService,private router:Router) {
     this.id = this.route.snapshot.paramMap.get('id');
     this.carService.getCarId(this.id); 
+
+    console.log(Date.parse("2011-05-16T15:36:38+02:00"));
+    var hora = new Date(Date.parse("2011-05-16T15:36:38+02:00"));
+    console.log(hora.toISOString());
+
   }
   ngOnInit() {
   }
@@ -40,8 +45,10 @@ export class CarViewComponent implements OnInit {
     if(this.brandSelect=="") this.brandSelect = this.carService.lastGotCar.brand;
     if(this.countrySelect=="") this.countrySelect = this.carService.lastGotCar.country;
 
+    var date = new Date(Date.now());
     this.carService.modifyCar(this.carService.lastGotCar.id,this.brandSelect,this.carService.lastGotCar.registration
-                              ,this.countrySelect,this.carService.lastGotCar.createdAt,Date.now());
+                              ,this.countrySelect,this.carService.lastGotCar.createdAt,date.toISOString());
+    this.router.navigateByUrl("");
   }
 
 }
